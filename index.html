@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Italianno&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #E4DAC6; }
+  *::selection { background: #E7AEB8; color: #fff; }
+  /* ---------- Responsive: let the 1920 canvas adapt to smaller screens ---------- */
+  @media (max-width: 1280px) {
+    #botik-desk { padding-left: 18px !important; padding-right: 18px !important; padding-top: 28px !important; }
+    #botik-page section, #botik-page > header, #botik-page > nav, #botik-page > footer { padding-left: 5vw !important; padding-right: 5vw !important; }
+    #botik-page [style*="grid-template-columns: 1fr 1fr"],
+    #botik-page [style*="grid-template-columns: repeat(3"],
+    #botik-page [style*="grid-template-columns: 320px 1fr"] { grid-template-columns: 1fr !important; }
+    #botik-page [style*="display: flex; gap: 44px"] { flex-direction: column !important; align-items: stretch !important; }
+    #botik-page [style*="flex: 0 0 300px"],
+    #botik-page [style*="flex: 0 0 380px"] { flex: 1 1 auto !important; width: 100% !important; max-width: 440px !important; margin-left: auto !important; margin-right: auto !important; }
+  }
+  @media (max-width: 760px) {
+    #botik-page [style*="column-count: 2"] { column-count: 1 !important; }
+    #botik-page section, #botik-page > header, #botik-page > nav, #botik-page > footer { padding-top: 52px !important; padding-bottom: 52px !important; }
+    #botik-page > header { padding-top: 70px !important; padding-bottom: 60px !important; }
+    #botik-page h2 { font-size: 38px !important; }
+    #botik-page table { font-size: 14px !important; }
+    #botik-page table th, #botik-page table td { padding: 9px !important; }
+  }
+  @media (max-width: 480px) {
+    #botik-page h2 { font-size: 31px !important; }
+    #botik-page h3 { font-size: 21px !important; }
+  }
+  @media print {
+    @page { margin: 0.5in; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    html, body { background: #ffffff !important; }
+    #botik-desk { background: #ffffff !important; padding: 0 !important; width: auto !important; }
+    #botik-page { box-shadow: none !important; border-radius: 0 !important; max-width: none !important; width: auto !important; }
+    figure, table, tr { break-inside: avoid; }
+    thead { display: table-header-group; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</helmet>
+
+<div id="botik-desk" style="--bg:#E4DAC6; --paper:#FBF7EE; --ink:#3A443C; --ink2:#6a7268; --mint:#9CC7B2; --mint-deep:#5C8B73; --mint-soft:#E7F0E9; --pink:#E7AEB8; --pink-deep:#BE7C89; --pink-soft:#F8E8EB; --line:#DDD3C0; --serif:'EB Garamond', Georgia, serif; --display:'Yeseva One', Georgia, serif; --script:'Italianno', cursive; width: 1920px; max-width: 100%; box-sizing: border-box; margin: 0 auto; background: var(--bg); padding: 56px 60px 90px;">
+
+  <article id="botik-page" style="width: 100%; box-sizing: border-box; background: var(--paper); border-radius: 8px; box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 24px 70px -30px rgba(58,68,60,0.4); overflow: hidden; color: var(--ink);">
+
+    <!-- ===================== HERO / COVER ===================== -->
+    <header style="position: relative; padding: 132px 80px 116px; text-align: center; background: linear-gradient(170deg, var(--mint-soft) 0%, var(--paper) 60%);">
+      <div style="position:absolute; top:30px; left:30px; right:30px; bottom:30px; border:1px solid var(--mint); border-radius: 4px; pointer-events:none;"></div>
+      <div style="position:absolute; top:37px; left:37px; right:37px; bottom:37px; border:1px solid rgba(231,174,184,0.6); border-radius: 4px; pointer-events:none;"></div>
+      <div style="position:absolute; top:20px; left:26px; font-family: var(--display); font-size: 44px; color: var(--mint); line-height:1;">&#10086;</div>
+      <div style="position:absolute; top:20px; right:26px; font-family: var(--display); font-size: 44px; color: var(--pink); line-height:1; transform: scaleX(-1);">&#10086;</div>
+
+      <div style="position: relative;">
+        <div style="font-family: var(--serif); font-size: 18px; letter-spacing: 0.46em; text-transform: uppercase; color: var(--mint-deep); font-weight: 600;">Campaña Integral Digital</div>
+        <img src="assets/logo.png" alt="Boti-K Puro Natural" style="display:block; width:300px; max-width:62%; height:auto; margin:6px auto 0;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:20px; margin: 26px auto 0; max-width: 560px;">
+          <span style="height:1px; background: var(--line); flex:1;"></span>
+          <span style="font-family: var(--display); color: var(--pink-deep); font-size: 24px;">&#10087;</span>
+          <span style="height:1px; background: var(--line); flex:1;"></span>
+        </div>
+        <p style="font-family: var(--serif); font-size: 25px; letter-spacing: 0.04em; color: var(--ink2); margin: 22px 0 0; font-style: italic;">Cosmética e higiene bionatural &mdash; estudio de caso &amp; campaña de fidelización</p>
+        <div style="font-family: var(--serif); font-size: 19px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); margin: 42px 0 0; font-weight: 600;">TP2 &middot; Marketing Digital &middot; DGN5BV</div>
+        <div style="font-family: var(--serif); font-size: 21px; color: var(--ink2); margin: 12px 0 0;">Nahir Alí &nbsp;&middot;&nbsp; Juliana Pereyra &nbsp;&middot;&nbsp; Irina Peyrot</div>
+      </div>
+    </header>
+
+    <!-- ===================== ÍNDICE ===================== -->
+    <nav style="padding: 76px 80px 80px;">
+      <div style="text-align:center; margin-bottom: 40px;">
+        <div style="font-family: var(--serif); font-size: 16px; letter-spacing: 0.36em; text-transform: uppercase; color: var(--pink-deep); font-weight: 600;">Índice</div>
+        <svg width="210" height="20" viewBox="0 0 210 20" fill="none" style="margin-top:10px;"><path d="M4 10 C 48 10 60 3 105 10 C 150 17 162 10 206 10" stroke="#9CC7B2" stroke-width="1.4" stroke-linecap="round"/><circle cx="105" cy="10" r="3" fill="#E7AEB8"/></svg>
+      </div>
+      <ol style="list-style:none; margin:0 auto; padding:0; max-width: 1180px; display:grid; grid-template-columns: 1fr 1fr; gap: 4px 64px; font-family: var(--serif); font-size: 20px;">
+        <li><a href="#introduccion" style="display:flex; align-items:baseline; gap:14px; text-decoration:none; color:var(--ink); padding:13px 0; border-bottom:1px dotted var(--line);"><span style="font-family:var(--display); color:var(--mint-deep); font-size:19px; width:34px;">01</span><span style="flex:1;">Introducción</span></a></li>
+        <li><a href="#historia" style="display:flex; align-items:baseline; gap:14px; text-decoration:none; color:var(--ink); padding:13px 0; border-bottom:1px dotted var(--line);"><span style="font-family:var(--display); color:var(--mint-deep); font-size:19px; width:34px;">02</span><span style="flex:1;">Historia de la organización</span></a></li>
+        <li><a href="#planificacion" style="display:flex; align-items:baseline; gap:14px; text-decoration:none; color:var(--ink); padding:13px 0; border-bottom:1px dotted var(--line);"><span style="font-family:var(--display); color:var(--mint-deep); font-size:19px; width:34px;">03</span><span style="flex:1;">Planificación estratégica <span style="font-size:16px; color:var(--ink2); font-style:italic;">· Misión · Visión · Valores</span></span></a></li>
+        <li><a href="#marketing" style="display:flex; align-items:baseline; gap:14px; text-decoration:none; color:var(--ink); padding:13px 0; border-bottom:1px dotted var(--line);"><span style="font-family:var(--display); color:var(--mint-deep); font-size:19px; width:34px;">04</span><span style="flex:1;">Marketing operativo <span style="font-size:16px; color:var(--ink2); font-style:italic;">· Producto · Precio · Plaza · Promoción</span></span></a></li>
+        <li><a href="#persona" style="display:flex; align-items:baseline; gap:14px; text-decoration:none; color:var(--ink); padding:13px 0; border-bottom:1px dotted var(--line);"><span style="font-family:var(--display); color:var(--mint-deep); font-size:19px; width:34px;">05</span><span style="flex:1;">Buyer persona &mdash; Elena Martínez</span></a></li>
+        <li><a href="#digital" style="display:flex; align-items:baseline; gap:14px; text-decoration:none; color:var(--ink); padding:13px 0; border-bottom:1px dotted var(--line);"><span style="font-family:var(--display); color:var(--mint-deep); font-size:19px; width:34px;">06</span><span style="flex:1;">Campaña integral digital</span></a></li>
+        <li><a href="#tipo-campana" style="display:flex; align-items:baseline; gap:14px; text-decoration:none; color:var(--ink); padding:13px 0; border-bottom:1px dotted var(--line);"><span style="font-family:var(--display); color:var(--mint-deep); font-size:19px; width:34px;">07</span><span style="flex:1;">Tipo de campaña</span></a></li>
+        <li><a href="#redes" style="display:flex; align-items:baseline; gap:14px; text-decoration:none; color:var(--ink); padding:13px 0; border-bottom:1px dotted var(--line);"><span style="font-family:var(--display); color:var(--mint-deep); font-size:19px; width:34px;">08</span><span style="flex:1;">Redes sociales</span></a></li>
+        <li style="grid-column: 1 / -1;"><a href="#piezas" style="display:flex; align-items:baseline; gap:14px; text-decoration:none; color:var(--ink); padding:13px 0; border-bottom:1px dotted var(--line);"><span style="font-family:var(--display); color:var(--mint-deep); font-size:19px; width:34px;">09</span><span style="flex:1;">Piezas propuestas <span style="font-size:16px; color:var(--ink2); font-style:italic;">· Reels · Carrusel · Stories Especial Mundial</span></span></a></li>
+      </ol>
+    </nav>
+
+    <!-- ===================== 01 INTRODUCCIÓN ===================== -->
+    <section id="introduccion" data-screen-label="Introducción" style="padding: 84px 80px;">
+      <div style="text-align:center; margin-bottom: 40px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:18px;"><span style="height:1px; width:60px; background:var(--mint);"></span><span style="font-family: var(--serif); font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--mint-deep); font-weight: 600;">Capítulo 01</span><span style="height:1px; width:60px; background:var(--mint);"></span></div>
+        <h2 style="font-family: var(--display); font-size: 56px; line-height: 1.05; color: var(--ink); margin: 18px 0 0; font-weight: 400;">Introducción</h2>
+        <svg width="220" height="20" viewBox="0 0 220 20" fill="none" style="margin-top:18px;"><path d="M4 10 C 50 10 62 3 110 10 C 158 17 170 10 216 10" stroke="#9CC7B2" stroke-width="1.4" stroke-linecap="round"/><circle cx="110" cy="10" r="3" fill="#E7AEB8"/></svg>
+      </div>
+      <div style="max-width: 900px; margin: 0 auto;">
+        <p style="font-family: var(--serif); font-size: 21px; line-height: 1.8; color: var(--ink); margin: 0;"><span style="float:left; font-family: var(--display); font-size: 86px; line-height: 0.78; color: var(--mint-deep); padding: 10px 18px 0 0;">L</span>a industria de la cosmética ha experimentado una transformación radical en la última década, alejándose de los componentes sintéticos para abrazar el concepto de <em>"Clean Beauty"</em>. En este contexto, se selecciona a la empresa <strong>Boti-K Pure</strong> como objeto de estudio, una organización argentina que opera en el rubro de la cosmética e higiene bionatural. La marca se destaca por su propuesta de valor centrada en la pureza de los ingredientes, eliminando derivados del petróleo, parabenos y fragancias artificiales.</p>
+        <p style="font-family: var(--serif); font-size: 21px; line-height: 1.8; color: var(--ink); margin: 22px 0 0;">Su sitio web oficial (boti-k.com) funciona no solo como un canal de ventas estilo e-commerce, sino como una plataforma educativa sobre la salud de la piel. La elección de esta marca responde a su coherencia entre el discurso ecológico y su ejecución comercial, lo que permite observar la transición desde un marketing orientado al producto hacia un marketing social, donde el objetivo primordial es el bienestar del consumidor y de la sociedad a largo plazo.</p>
+      </div>
+    </section>
+
+    <!-- ===================== 02 HISTORIA (mint band) ===================== -->
+    <section id="historia" data-screen-label="Historia de la organización" style="padding: 84px 80px; background: var(--mint-soft);">
+      <div style="text-align:center; margin-bottom: 40px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:18px;"><span style="height:1px; width:60px; background:var(--mint-deep);"></span><span style="font-family: var(--serif); font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--mint-deep); font-weight: 600;">Capítulo 02</span><span style="height:1px; width:60px; background:var(--mint-deep);"></span></div>
+        <h2 style="font-family: var(--display); font-size: 54px; line-height: 1.08; color: var(--ink); margin: 18px 0 0; font-weight: 400;">Historia de la organización</h2>
+        <svg width="220" height="20" viewBox="0 0 220 20" fill="none" style="margin-top:18px;"><path d="M4 10 C 50 10 62 3 110 10 C 158 17 170 10 216 10" stroke="#5C8B73" stroke-width="1.4" stroke-linecap="round"/><circle cx="110" cy="10" r="3" fill="#E7AEB8"/></svg>
+      </div>
+      <div style="max-width: 900px; margin: 0 auto;">
+        <p style="font-family: var(--serif); font-size: 20px; line-height: 1.8; color: var(--ink); margin: 0;">La trayectoria de Boti-K Pure es un testimonio de cómo una necesidad personal puede transformarse en un modelo de negocio disruptivo. La empresa nació en <strong>2009</strong> de la mano de sus fundadores, <strong>Ignacio Conde y Florencia Villamil Delfabro</strong>, impulsados por la búsqueda de una solución para la piel extremadamente sensible de su hijo, Santino. Este hito fundacional marcó el ADN de la organización: la creación de productos seguros para personas con patologías específicas.</p>
+        <p style="font-family: var(--serif); font-size: 20px; line-height: 1.8; color: var(--ink); margin: 22px 0 0;">Para el año <strong>2011</strong>, la marca ya se posicionaba como pionera en el desarrollo de jabones 100% vegetales en Argentina, cubriendo un nicho de mercado desatendido por la cosmética masiva. Entre <strong>2012 y 2017</strong>, Boti-K logró una expansión sin precedentes a través de canales de distribución indirectos como dietéticas y farmacias especializadas, logrando que el producto estuviera al alcance del consumidor consciente en todo el país.</p>
+        <p style="font-family: var(--serif); font-size: 20px; line-height: 1.8; color: var(--ink); margin: 22px 0 0;">En <strong>2018</strong>, la empresa reportó un crecimiento en su facturación del <strong>89%</strong>, lo que permitió profesionalizar aún más su comunicación digital. En la actualidad, y a partir del <strong>2021 y 2022</strong>, la marca inició su proceso de internacionalización, exportando a mercados como Taiwán y Rusia, y lanzando su ambiciosa campaña <em>"Cero Plástico"</em> para eliminar los envases contaminantes, reafirmando su compromiso con la sostenibilidad ambiental.</p>
+      </div>
+    </section>
+
+    <!-- ===================== 03 PLANIFICACIÓN ESTRATÉGICA ===================== -->
+    <section id="planificacion" data-screen-label="Planificación estratégica" style="padding: 84px 80px;">
+      <div style="text-align:center; margin-bottom: 40px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:18px;"><span style="height:1px; width:60px; background:var(--mint);"></span><span style="font-family: var(--serif); font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--mint-deep); font-weight: 600;">Capítulo 03</span><span style="height:1px; width:60px; background:var(--mint);"></span></div>
+        <h2 style="font-family: var(--display); font-size: 54px; line-height: 1.08; color: var(--ink); margin: 18px 0 0; font-weight: 400;">Planificación estratégica</h2>
+        <svg width="220" height="20" viewBox="0 0 220 20" fill="none" style="margin-top:18px;"><path d="M4 10 C 50 10 62 3 110 10 C 158 17 170 10 216 10" stroke="#9CC7B2" stroke-width="1.4" stroke-linecap="round"/><circle cx="110" cy="10" r="3" fill="#E7AEB8"/></svg>
+      </div>
+      <div style="max-width: 900px; margin: 0 auto 50px;">
+        <p style="font-family: var(--serif); font-size: 20px; line-height: 1.8; color: var(--ink); margin: 0;">La planificación estratégica de Boti-K Pure es el proceso mediante el cual la organización establece sus prioridades y asigna recursos para alcanzar su meta final. Según lo visto en clase, este proceso busca analizar las necesidades del mercado para brindar soluciones efectivas, orientando a la empresa hacia oportunidades atractivas en el largo plazo. Dado que esta información no está textualmente citada en el sitio web de la empresa, a continuación definiremos la misión, visión y valores de Boti-K. Estos datos han sido redactados por nosotras a partir del análisis de la sección <em>"Nosotros"</em> del sitio oficial de la marca (Boti-k.com, s.f.) y el artículo de Forbes Argentina (2019) sobre la historia de sus fundadores.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr; gap: 26px; max-width: 1100px; margin: 0 auto;">
+        <div style="position:relative; background: var(--paper); border: 1px solid var(--mint); border-radius: 6px 28px 6px 28px; padding: 36px 44px;">
+          <div style="position:absolute; top:12px; right:20px; font-family: var(--display); font-size: 30px; color: var(--mint); line-height:1;">&#10047;</div>
+          <h3 style="font-family: var(--display); font-size: 34px; color: var(--mint-deep); margin: 0 0 6px; font-weight: 400;">Misión</h3>
+          <p style="font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.6; color: var(--ink2); margin: 0 0 16px;">El propósito en el mercado &mdash; la razón de ser de la organización. Responde a "¿cuál es nuestro negocio?" y "¿quién es nuestro cliente?".</p>
+          <p style="font-family: var(--serif); font-size: 20px; line-height: 1.75; color: var(--ink); margin: 0;">La misión de Boti-K Pure es <strong>proveer soluciones de higiene y cosmética de origen vegetal y bionatural</strong> que garanticen la máxima pureza y seguridad dermatológica. Su foco está puesto en personas con pieles sensibles o patologías específicas que valoran la transparencia en los ingredientes. Esta misión se alinea al concepto de <em>"soluciones en lugar de productos"</em> de Levitt, ya que la marca nació de la necesidad real de los fundadores por encontrar una respuesta a la sensibilidad extrema de su hijo (Forbes Argentina, 2019).</p>
+        </div>
+        <div style="position:relative; background: var(--paper); border: 1px solid var(--pink); border-radius: 28px 6px 28px 6px; padding: 36px 44px;">
+          <div style="position:absolute; top:12px; left:20px; font-family: var(--display); font-size: 30px; color: var(--pink); line-height:1;">&#10047;</div>
+          <h3 style="font-family: var(--display); font-size: 34px; color: var(--pink-deep); margin: 0 0 6px; font-weight: 400; text-align:right;">Visión</h3>
+          <p style="font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.6; color: var(--ink2); margin: 0 0 16px;">El punto de partida del proceso: la aspiración de la organización a largo plazo. Es inspiracional y marca el propósito de la empresa en el mundo.</p>
+          <p style="font-family: var(--serif); font-size: 20px; line-height: 1.75; color: var(--ink); margin: 0;">Boti-K Pure aspira a <strong>consolidarse como la marca líder en cosmética bionatural de Latinoamérica</strong>, siendo reconocida globalmente por su innovación sustentable y su capacidad para transformar la industria de la belleza hacia un modelo más ético y honesto. Esta visión actúa como el norte inspiracional que guía su expansión internacional actual hacia mercados como Brasil y el límite con Paraguay (y aún más allá de Latinoamérica, el sudeste asiático) (Boti-k.com, s.f.).</p>
+        </div>
+        <div style="position:relative; background: var(--mint-soft); border: 1px solid var(--mint); border-radius: 6px 28px 6px 28px; padding: 36px 44px;">
+          <div style="position:absolute; top:12px; right:20px; font-family: var(--display); font-size: 30px; color: var(--mint-deep); line-height:1;">&#10047;</div>
+          <h3 style="font-family: var(--display); font-size: 34px; color: var(--mint-deep); margin: 0 0 6px; font-weight: 400;">Valores</h3>
+          <p style="font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.6; color: var(--ink2); margin: 0 0 18px;">Expresan el "cómo" se van a lograr la misión y la visión. Son los principios esenciales que rigen las tareas diarias de todos los colaboradores.</p>
+          <ul style="list-style:none; margin: 0 0 16px; padding: 0; display:flex; flex-direction:column; gap: 14px;">
+            <li style="display:flex; gap:14px; font-family: var(--serif); font-size: 20px; line-height:1.65; color: var(--ink);"><span style="color:var(--pink-deep); font-size:16px; margin-top:5px;">&#10048;</span><span><strong>Transparencia:</strong> honestidad total en la composición de las fórmulas.</span></li>
+            <li style="display:flex; gap:14px; font-family: var(--serif); font-size: 20px; line-height:1.65; color: var(--ink);"><span style="color:var(--pink-deep); font-size:16px; margin-top:5px;">&#10048;</span><span><strong>Inclusión:</strong> desarrollo de productos aptos para celíacos y diversas afecciones dérmicas.</span></li>
+            <li style="display:flex; gap:14px; font-family: var(--serif); font-size: 20px; line-height:1.65; color: var(--ink);"><span style="color:var(--pink-deep); font-size:16px; margin-top:5px;">&#10048;</span><span><strong>Responsabilidad ambiental:</strong> compromiso con la eliminación de plásticos y el respeto por el medio ambiente (Boti-k.com, s.f.).</span></li>
+          </ul>
+          <p style="font-family: var(--serif); font-size: 18px; line-height: 1.7; color: var(--ink2); margin: 0; font-style: italic;">Estos valores sirven para la validación de la marca en el entorno digital, donde el consumidor actual exige compromiso, integridad y coherencia entre el discurso y la acción.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 04 MARKETING OPERATIVO (pink band) ===================== -->
+    <section id="marketing" data-screen-label="Marketing operativo" style="padding: 84px 80px; background: var(--pink-soft);">
+      <div style="text-align:center; margin-bottom: 36px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:18px;"><span style="height:1px; width:60px; background:var(--pink);"></span><span style="font-family: var(--serif); font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--pink-deep); font-weight: 600;">Capítulo 04</span><span style="height:1px; width:60px; background:var(--pink);"></span></div>
+        <h2 style="font-family: var(--display); font-size: 54px; line-height: 1.08; color: var(--ink); margin: 18px 0 0; font-weight: 400;">Marketing operativo</h2>
+        <svg width="220" height="20" viewBox="0 0 220 20" fill="none" style="margin-top:18px;"><path d="M4 10 C 50 10 62 3 110 10 C 158 17 170 10 216 10" stroke="#BE7C89" stroke-width="1.4" stroke-linecap="round"/><circle cx="110" cy="10" r="3" fill="#5C8B73"/></svg>
+      </div>
+      <div style="max-width: 900px; margin: 0 auto 44px;">
+        <p style="font-family: var(--serif); font-size: 20px; line-height: 1.8; color: var(--ink); margin: 0; text-align:center;">El marketing operativo se ocupa del desarrollo y ejecución de acciones tácticas en el corto plazo, teniendo como herramienta fundamental el <strong>Marketing Mix</strong>. Analizamos a continuación dos productos emblemáticos de la marca: el <strong>jabón vegetal de jojoba</strong> y la <strong>eco leche balsámica facial</strong>.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 1000px; margin: 0 auto 48px;">
+        <figure style="margin:0;">
+          <img src="assets/producto-jabon.png" alt="Jabón vegetal de jojoba Boti-K Pure" style="width:100%; height:280px; object-fit:contain; border:1px solid var(--mint); border-radius:6px 26px 6px 26px; background:#fff; box-sizing:border-box;">
+        </figure>
+        <figure style="margin:0;">
+          <img src="assets/producto-leche.png" alt="Eco leche balsámica facial Boti-K Pure" style="width:100%; height:280px; object-fit:contain; border:1px solid var(--pink); border-radius:26px 6px 26px 6px; background:#fff; box-sizing:border-box;">
+        </figure>
+      </div>
+
+      <div style="max-width: 1280px; margin: 0 auto; display:grid; grid-template-columns: 1fr 1fr; gap: 40px 56px;">
+        <div>
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom: 12px;"><span style="font-family: var(--display); font-size: 38px; color: var(--mint-deep);">P</span><h3 style="font-family: var(--display); font-size: 30px; color: var(--ink); margin: 0; font-weight: 400;">Producto</h3><span style="flex:1; height:1px; background: rgba(190,124,137,0.35);"></span></div>
+          <p style="font-family: var(--serif); font-size: 19px; line-height: 1.74; color: var(--ink); margin: 0;">El producto se define como cualquier bien material, servicio o idea que posee valor para el consumidor y satisface una necesidad, debiendo enfocarse no solo en atributos físicos sino en los beneficios y experiencias que proporciona. En este sentido, Boti-K Pure no comercializa simplemente cosméticos, sino <strong>soluciones de bienestar e higiene natural</strong> diseñadas para personas con sensibilidad extrema o patologías como la rosácea. El <strong>jabón vegetal de jojoba</strong> es un bien material formulado sin grasas animales ni químicos sintéticos, cuyo valor reside en el aceite de jojoba orgánico que actúa como regenerador celular, validado por sellos oficiales como <em>Cruelty Free, Vegan y Sin TACC</em>. La <strong>Eco leche balsámica</strong> es una emulsión hidratante diseñada para pieles con rosácea o sensibilidad extrema, ofreciendo una experiencia de uso multifuncional que limpia, hidrata y calma. Además, la marca integra una identidad visual de naturaleza bella con la estética <strong>Art Nouveau contemporáneo</strong>, lo cual ayuda a que la marca y el envase sean atractivos a la vista y aumenta el valor para quien disfruta de los productos estéticos. La marca, asimismo, tiene un fuerte compromiso con la sostenibilidad mediante su campaña <em>"Cero Plástico"</em> y sistemas de envases refill de la leche con promociones especiales para fomentar su compra.</p>
+        </div>
+        <div>
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom: 12px;"><span style="font-family: var(--display); font-size: 38px; color: var(--pink-deep);">P</span><h3 style="font-family: var(--display); font-size: 30px; color: var(--ink); margin: 0; font-weight: 400;">Precio</h3><span style="flex:1; height:1px; background: rgba(190,124,137,0.35);"></span></div>
+          <p style="font-family: var(--serif); font-size: 19px; line-height: 1.74; color: var(--ink); margin: 0;">El precio es el pilar de la estrategia, representado por su valor expresado en unidad monetaria, pero está intrínsecamente relacionado con el valor percibido por el consumidor. Es uno de los componentes de la estrategia competitiva. El precio de estos productos se posiciona por encima de los jabones industriales de supermercado, ubicándose dentro de un <strong>segmento premium</strong> de cosmética natural. El jabón ronda los <strong>$14.000 ARS</strong> dependiendo del punto de venta y promociones vigentes en el e-commerce oficial. La leche tiene un valor aproximado de <strong>$31.000 ARS</strong>, según el formato y canal de distribución. Además del valor asociado a la formulación dermatológica y bionatural, el <strong>sistema refill</strong> permite reducir costos de recompra y residuos plásticos. El precio se justifica por el ahorro económico a largo plazo que supone el sistema de recarga y por el beneficio psicológico de contribuir a la sostenibilidad, alineándose con los valores del target. La marca ofrece beneficios de compra online, como <strong>descuentos por transferencia bancaria (5%</strong> a la fecha de redacción del trabajo). El precio elevado se justifica mediante la utilización de ingredientes orgánicos, fórmulas hipoalergénicas y procesos de producción artesanales. Esta estrategia se justifica por la percepción de valor del consumidor, quien está dispuesto a realizar un mayor sacrificio económico a cambio de los beneficios funcionales y psicológicos que ofrece la marca: la seguridad dermatológica, la pureza de las materias primas orgánicas y el ahorro a largo plazo que suponen los formatos sólidos y recargables.</p>
+        </div>
+        <div>
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom: 12px;"><span style="font-family: var(--display); font-size: 38px; color: var(--mint-deep);">P</span><h3 style="font-family: var(--display); font-size: 30px; color: var(--ink); margin: 0; font-weight: 400;">Plaza</h3><span style="flex:1; height:1px; background: rgba(190,124,137,0.35);"></span></div>
+          <p style="font-family: var(--serif); font-size: 19px; line-height: 1.74; color: var(--ink); margin: 0;">La plaza abarca todas las decisiones de logística y canales de distribución destinadas a que el producto esté accesible para el consumidor en el momento y el lugar deseado. Para la gran mayoría de sus productos, incluyendo el jabón, Boti-K Pure ha desarrollado una <strong>red de distribución mixta</strong> que asegura la conveniencia del consumidor en todo el país. Por un lado, cuenta con canales físicos estratégicos que incluyen dietéticas, farmacias especializadas, locales propios y puntos de venta en aeropuertos. Por otro lado, su canal digital principal es el sitio web oficial (boti-k.com), el cual funciona como un local comercial abierto las 24 horas, los 365 días del año, permitiendo la compra directa y facilitando el acceso a consumidores que no cuentan con tiendas físicas cercanas. La empresa cuenta con diversas formas de envío o entrega para asegurar una distribución amplia: envíos a todo el país con OCA, envíos locales con cadetería propia, retiro en sucursales de OCA (estas tres opciones con un costo agregado) o retiro en sucursal propia. Para la Eco leche balsámica, la marca utiliza una distribución más selectiva, priorizando el canal online y tiendas hiper especializadas de cosmética natural donde el personal puede brindar asesoramiento técnico sobre el uso del sistema de recarga.</p>
+        </div>
+        <div>
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom: 12px;"><span style="font-family: var(--display); font-size: 38px; color: var(--pink-deep);">P</span><h3 style="font-family: var(--display); font-size: 30px; color: var(--ink); margin: 0; font-weight: 400;">Promoción</h3><span style="flex:1; height:1px; background: rgba(190,124,137,0.35);"></span></div>
+          <p style="font-family: var(--serif); font-size: 19px; line-height: 1.74; color: var(--ink); margin: 0;">La promoción consiste fundamentalmente en la comunicación del valor de la marca al mercado, con el fin de informar, persuadir o recordar. La marca promociona todos sus productos principalmente mediante <strong>redes sociales</strong>, a partir de contenido educativo y publicaciones centradas en los beneficios funcionales de los ingredientes. Mientras que en <strong>Instagram</strong> fomentan la interacción con la comunidad y el uso de testimonios de prosumidores, en <strong>Pinterest</strong> actúan como fuente de inspiración visual vinculada directamente al e-commerce. La marca también utiliza <strong>storytelling</strong> para narrar su historia fundacional basada en una necesidad familiar, lo cual genera una conexión emocional profunda que la diferencia de sus competidores tradicionales. Con ello, logran alcanzar validación social mediante testimonios de usuarios, reseñas en medios digitales y notas periodísticas como Forbes Argentina o Emprendi2tv.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 05 BUYER PERSONA ===================== -->
+    <section id="persona" data-screen-label="Buyer persona" style="padding: 84px 80px;">
+      <div style="text-align:center; margin-bottom: 42px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:18px;"><span style="height:1px; width:60px; background:var(--mint);"></span><span style="font-family: var(--serif); font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--mint-deep); font-weight: 600;">Capítulo 05</span><span style="height:1px; width:60px; background:var(--mint);"></span></div>
+        <h2 style="font-family: var(--display); font-size: 54px; line-height: 1.08; color: var(--ink); margin: 18px 0 0; font-weight: 400;">Buyer persona</h2>
+        <svg width="220" height="20" viewBox="0 0 220 20" fill="none" style="margin-top:18px;"><path d="M4 10 C 50 10 62 3 110 10 C 158 17 170 10 216 10" stroke="#9CC7B2" stroke-width="1.4" stroke-linecap="round"/><circle cx="110" cy="10" r="3" fill="#E7AEB8"/></svg>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 320px 1fr; gap: 40px; align-items:stretch; max-width: 1100px; margin: 0 auto 44px; background: var(--mint-soft); border: 1px solid var(--mint); border-radius: 8px 36px 8px 36px; padding: 36px; box-sizing: border-box;">
+        <div style="display:flex; flex-direction:column;">
+          <img src="assets/retrato-elena.png" alt="Retrato de Elena Martínez" style="flex:1; min-height:300px; width:100%; object-fit:cover; object-position:center 35%; border:1px solid var(--mint-deep); border-radius:6px 28px 6px 28px; box-sizing:border-box;">
+        </div>
+        <div>
+          <div style="font-family: var(--serif); font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--pink-deep); font-weight: 600;">Buyer persona</div>
+          <div style="font-family: var(--display); font-size: 48px; color: var(--ink); line-height: 1; margin: 8px 0 22px;">Elena Martínez</div>
+          <dl style="margin:0; display:grid; grid-template-columns: auto 1fr; gap: 12px 22px; font-family: var(--serif); font-size: 19px;">
+            <dt style="color:var(--mint-deep); font-weight:600;">Edad</dt><dd style="margin:0; color:var(--ink);">42 años</dd>
+            <dt style="color:var(--mint-deep); font-weight:600;">Género</dt><dd style="margin:0; color:var(--ink);">Femenino</dd>
+            <dt style="color:var(--mint-deep); font-weight:600;">Personalidad</dt><dd style="margin:0; color:var(--ink);">Analítica, cautelosa, consciente y con una fuerte inclinación hacia la transparencia</dd>
+            <dt style="color:var(--mint-deep); font-weight:600;">Estudios</dt><dd style="margin:0; color:var(--ink);">Universitario completo (Contadora Pública)</dd>
+            <dt style="color:var(--mint-deep); font-weight:600;">Ingresos</dt><dd style="margin:0; color:var(--ink);">Medio-alto</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div style="max-width: 1280px; margin: 0 auto; column-count: 2; column-gap: 56px;">
+        <div style="break-inside:avoid; -webkit-column-break-inside:avoid; display:inline-block; width:100%; margin-bottom: 30px;">
+          <h3 style="font-family: var(--display); font-size: 26px; color: var(--pink-deep); margin: 0 0 16px; font-weight: 400; display:flex; align-items:center; gap:12px;"><span style="font-size:18px; color:var(--mint);">&#10048;</span>¿Cuáles son sus intereses y deseos?</h3>
+          <div style="display:flex; flex-direction:column; gap: 14px;">
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿Trabaja? ¿Estudia?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Trabaja como contadora en el sector corporativo.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿Qué hace en su tiempo libre?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Pasa tiempo con su familia y la familia de su marido. Ocasionalmente se junta con amigas. Investiga sobre salud bionatural, lee sobre el concepto de "clean beauty" y busca testimonios de personas con afecciones similares.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿Le gusta viajar? ¿Qué libros lee? ¿Qué series ve?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">No viaja mucho, ha hecho poco turismo interno. Mira series policiales durante las cenas. Prefiere libros de temática romántica.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">Actividades sociales</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Prefiere reuniones tranquilas con colegas; valora los espacios que no comprometan su salud ni la expongan a factores ambientales agresivos.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿Hace deportes? ¿Sale a bailar? ¿Reuniones presenciales o virtuales?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">No hace deportes ni tiene una vida nocturna muy activa porque le disparan su condición dérmica. El sudor, la energía de los boliches, el alcohol y trasnochar no son sus aliados.</p></div>
+          </div>
+        </div>
+        <div style="break-inside:avoid; -webkit-column-break-inside:avoid; display:inline-block; width:100%; margin-bottom: 30px;">
+          <h3 style="font-family: var(--display); font-size: 26px; color: var(--pink-deep); margin: 0 0 16px; font-weight: 400; display:flex; align-items:center; gap:12px;"><span style="font-size:18px; color:var(--mint);">&#10048;</span>¿Dónde se encuentra?</h3>
+          <div style="display:flex; flex-direction:column; gap: 14px;">
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿Dónde vive / trabaja?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Vive y trabaja en el centro de Córdoba Capital, un entorno urbano con alta exposición a contaminación y aire acondicionado. Se traslada en colectivo, suele ir escuchando el podcast <em>La Cruda</em>.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">Si le gusta salir a comer, ¿qué lugares prefiere?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Prefiere comer en su casa o las de sus amigas/familia. Si debe hacer una salida, elige ir a <strong>MISKA</strong>, una cafetería que se especializa en obviar el gluten, cosa que evita.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿En dónde le gusta pasar el rato?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">En su hogar, la casa de sus amigas o familia, buscando crear un ambiente de calma frente al estrés diario.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿A dónde va a buscar el producto?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Principalmente en dietéticas, farmacias especializadas cercanas a su trabajo y en el sitio web oficial de la marca.</p></div>
+          </div>
+        </div>
+        <div style="break-inside:avoid; -webkit-column-break-inside:avoid; display:inline-block; width:100%; margin-bottom: 30px;">
+          <h3 style="font-family: var(--display); font-size: 26px; color: var(--pink-deep); margin: 0 0 16px; font-weight: 400; display:flex; align-items:center; gap:12px;"><span style="font-size:18px; color:var(--mint);">&#10048;</span>¿En qué momentos…?</h3>
+          <div style="display:flex; flex-direction:column; gap: 14px;">
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿Cuándo trabaja/estudia?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Durante el horario comercial, enfrentando situaciones de estrés laboral que a menudo disparan su rosácea.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿Cuándo tiene tiempo libre?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Por las noches y fines de semana, momentos que dedica a sus rutinas de autocuidado y limpieza facial.</p></div>
+          </div>
+        </div>
+        <div style="break-inside:avoid; -webkit-column-break-inside:avoid; display:inline-block; width:100%; margin-bottom: 30px;">
+          <h3 style="font-family: var(--display); font-size: 26px; color: var(--pink-deep); margin: 0 0 16px; font-weight: 400; display:flex; align-items:center; gap:12px;"><span style="font-size:18px; color:var(--mint);">&#10048;</span>¿Por qué…?</h3>
+          <div style="display:flex; flex-direction:column; gap: 14px;">
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿Qué es lo que más le gusta del producto?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">La pureza de los ingredientes naturales, la ausencia de tóxicos, fragancias artificiales y derivados del petróleo.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿Qué marcas considera / no compraría?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Considera marcas con sellos oficiales (cruelty free, vegan); jamás compraría cosmética masiva con químicos agresivos o marcas de lujo que oculten ingredientes bajo nombres técnicos.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--mint-deep); margin:0 0 3px; font-size:18px;">¿Qué hace después de la compra?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Se convierte en una cliente leal una vez que comprueba que el producto no le genera reacción adversa, y lo recomienda por su confianza técnica.</p></div>
+          </div>
+        </div>
+        <div style="break-inside:avoid; -webkit-column-break-inside:avoid; display:inline-block; width:100%; margin-bottom: 30px; background:var(--pink-soft); border:1px solid var(--pink); border-radius:6px 22px 6px 22px; padding:24px 28px;">
+          <h3 style="font-family: var(--display); font-size: 26px; color: var(--pink-deep); margin: 0 0 16px; font-weight: 400; display:flex; align-items:center; gap:12px;"><span style="font-size:18px; color:var(--mint);">&#10048;</span>¿Qué hace en digital?</h3>
+          <div style="display:flex; flex-direction:column; gap: 14px;">
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--pink-deep); margin:0 0 3px; font-size:18px;">¿En dónde le gusta pasar el rato online?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">En Instagram buscando contenido educativo o entretenido, y en TikTok.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--pink-deep); margin:0 0 3px; font-size:18px;">¿Consume contenido en digital?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Sí, le gustan los formatos educativos y los testimonios reales de los productos que le interesan, especializados en bienestar y salud dérmica. Escucha música y podcasts, y le gustan las cuentas de marcas locales/nacionales. Le gusta mirar recetas de alimentos que le ayuden a mantener su piel estable.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--pink-deep); margin:0 0 3px; font-size:18px;">¿Produce contenido en digital?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Sube historias personales y posteos cuando se junta con sus cercanos.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--pink-deep); margin:0 0 3px; font-size:18px;">¿En qué momento del día está en redes sociales?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Durante su almuerzo en el trabajo y mientras cocina la cena.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--pink-deep); margin:0 0 3px; font-size:18px;">¿Compra por internet? ¿En sitio web? ¿En Mercado Libre?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Sí, compra por vías digitales muchas veces. Dependiendo de la opción o el costo, sigue prefiriendo ir a asesorarse en persona.</p></div>
+            <div><p style="font-family:var(--serif); font-style:italic; color:var(--pink-deep); margin:0 0 3px; font-size:18px;">¿Qué le genera desconfianza/confianza en internet?</p><p style="font-family:var(--serif); font-size:18px; line-height:1.65; color:var(--ink); margin:0;">Valida el contenido de los perfiles en redes a los que les quiere comprar, asegurándose de que sea todo verídico. Se fija en el tipo de contenido que suben, si hay opiniones o comentarios negativos. Si es vía Mercado Libre, se fija en la puntuación del vendedor y los comentarios de compradores previos. Ante la posibilidad de pagar contra entrega o vía transferencia, opta por pagar contra entrega.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 06 CAMPAÑA INTEGRAL DIGITAL (image only) ===================== -->
+    <section id="digital" data-screen-label="Campaña integral digital" style="padding: 84px 80px; background: var(--mint-soft);">
+      <div style="text-align:center; margin-bottom: 40px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:18px;"><span style="height:1px; width:60px; background:var(--mint-deep);"></span><span style="font-family: var(--serif); font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--mint-deep); font-weight: 600;">Capítulo 06</span><span style="height:1px; width:60px; background:var(--mint-deep);"></span></div>
+        <h2 style="font-family: var(--display); font-size: 54px; line-height: 1.08; color: var(--ink); margin: 18px 0 0; font-weight: 400;">Campaña integral digital</h2>
+        <svg width="220" height="20" viewBox="0 0 220 20" fill="none" style="margin-top:18px;"><path d="M4 10 C 50 10 62 3 110 10 C 158 17 170 10 216 10" stroke="#5C8B73" stroke-width="1.4" stroke-linecap="round"/><circle cx="110" cy="10" r="3" fill="#E7AEB8"/></svg>
+      </div>
+      <figure style="margin:0 auto; max-width: 1280px;">
+        <a href="assets/campana-digital.jpg" target="_blank" rel="noopener" style="display:block;">
+          <img src="assets/campana-digital.jpg" alt="Customer Journey Map de la campaña integral digital de Boti-K Pure" style="width:100%; display:block; border:1px solid var(--mint-deep); border-radius:8px 40px 8px 40px; box-sizing:border-box; background:#fff;">
+        </a>
+        <figcaption style="font-family:var(--serif); font-size:16px; font-style:italic; color:var(--ink2); text-align:center; margin:16px 0 0;">Customer Journey Map de Elena a lo largo de las cinco etapas de la campaña &mdash; hacé click para ampliar.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== 07 TIPO DE CAMPAÑA ===================== -->
+    <section id="tipo-campana" data-screen-label="Tipo de campaña" style="padding: 84px 80px;">
+      <div style="text-align:center; margin-bottom: 40px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:18px;"><span style="height:1px; width:60px; background:var(--mint);"></span><span style="font-family: var(--serif); font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--mint-deep); font-weight: 600;">Capítulo 07</span><span style="height:1px; width:60px; background:var(--mint);"></span></div>
+        <h2 style="font-family: var(--display); font-size: 54px; line-height: 1.08; color: var(--ink); margin: 18px 0 0; font-weight: 400;">Tipo de campaña</h2>
+        <svg width="220" height="20" viewBox="0 0 220 20" fill="none" style="margin-top:18px;"><path d="M4 10 C 50 10 62 3 110 10 C 158 17 170 10 216 10" stroke="#9CC7B2" stroke-width="1.4" stroke-linecap="round"/><circle cx="110" cy="10" r="3" fill="#E7AEB8"/></svg>
+      </div>
+      <div style="max-width: 900px; margin: 0 auto;">
+        <p style="font-family: var(--serif); font-size: 20px; line-height: 1.8; color: var(--ink); margin: 0;">Seleccionamos la etapa de <strong>fidelización</strong>. El objetivo aquí no es captar nuevos clientes, sino retener a Elena, incentivar la re-compra y transformarla en una promotora de la marca.</p>
+        <p style="font-family: var(--serif); font-size: 20px; line-height: 1.8; color: var(--ink); margin: 22px 0 0;">A Elena la identificamos por ser una compradora que está dispuesta a mostrar su conformidad con el producto, la marca y el cambio en su piel. Esto significa que si el producto cumple con lo que promete, ella no solo volverá a comprar, sino que lo recomendará genuinamente a su entorno. Y, si bien no es una usuaria que se sentirá cómoda produciendo contenido en sus propias historias o en posteos de Instagram, sí está dispuesta a sumarse a la conversación en la plataforma de la marca.</p>
+        <p style="font-family: var(--serif); font-size: 20px; line-height: 1.8; color: var(--ink); margin: 22px 0 0;">Como ella tiene un perfil analítico y prioriza lo limpio de los ingredientes y las marcas con sellos que lo avalen, su fidelidad está unida a la ética y transparencia de la empresa. No es fiel por un descuento acumulativo, sino por la calidad y la pureza del producto que cuida su rosácea.</p>
+      </div>
+    </section>
+
+    <!-- ===================== 08 REDES SOCIALES (pink band) ===================== -->
+    <section id="redes" data-screen-label="Redes sociales" style="padding: 84px 80px; background: var(--pink-soft);">
+      <div style="text-align:center; margin-bottom: 40px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:18px;"><span style="height:1px; width:60px; background:var(--pink);"></span><span style="font-family: var(--serif); font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--pink-deep); font-weight: 600;">Capítulo 08</span><span style="height:1px; width:60px; background:var(--pink);"></span></div>
+        <h2 style="font-family: var(--display); font-size: 54px; line-height: 1.08; color: var(--ink); margin: 18px 0 0; font-weight: 400;">Redes sociales</h2>
+        <svg width="220" height="20" viewBox="0 0 220 20" fill="none" style="margin-top:18px;"><path d="M4 10 C 50 10 62 3 110 10 C 158 17 170 10 216 10" stroke="#BE7C89" stroke-width="1.4" stroke-linecap="round"/><circle cx="110" cy="10" r="3" fill="#5C8B73"/></svg>
+      </div>
+      <p style="font-family: var(--serif); font-size: 20px; line-height: 1.8; color: var(--ink); margin: 0 auto 32px; max-width: 900px; text-align:center;">La campaña se concentrará <strong>únicamente en Instagram</strong>, justificándose bajo el comportamiento real de Elena y el uso común de esta red social:</p>
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1280px; margin: 0 auto;">
+        <div style="background: var(--paper); border:1px solid var(--pink); border-radius: 6px 24px 6px 24px; padding: 28px 30px;"><h3 style="font-family: var(--display); font-size: 23px; color: var(--pink-deep); margin: 0 0 10px; font-weight: 400;">Sintonía con sus rutinas y micro-momentos</h3><p style="font-family:var(--serif); font-size: 18px; line-height:1.68; color:var(--ink); margin:0;">Elena utiliza Instagram de manera habitual en momentos muy específicos del día: durante el almuerzo laboral o mientras cocina la cena. Es una red de consulta rápida y de consumo fluido, ideal para conectar con ella en sus momentos de descanso diario sin irrumpir de forma invasiva.</p></div>
+        <div style="background: var(--paper); border:1px solid var(--mint); border-radius: 24px 6px 24px 6px; padding: 28px 30px;"><h3 style="font-family: var(--display); font-size: 23px; color: var(--mint-deep); margin: 0 0 10px; font-weight: 400;">Espacio de auditoría y confianza</h3><p style="font-family:var(--serif); font-size: 18px; line-height:1.68; color:var(--ink); margin:0;">Para un perfil analítico como el de Elena, el uso principal de Instagram es la validación. Ella declara que cuida mucho los perfiles de redes a los que les compra y revisa comentarios y opiniones. Instagram es la plataforma por excelencia para esto, ya que permite mantener un feed ordenado que actúe como vitrina de transparencia (mostrando sellos, ingredientes y certificaciones) y secciones de comentarios abiertas donde se aloja la prueba social.</p></div>
+        <div style="background: var(--paper); border:1px solid var(--pink); border-radius: 6px 24px 6px 24px; padding: 28px 30px;"><h3 style="font-family: var(--display); font-size: 23px; color: var(--pink-deep); margin: 0 0 10px; font-weight: 400;">Canal bidireccional para generar conversación</h3><p style="font-family:var(--serif); font-size: 18px; line-height:1.68; color:var(--ink); margin:0;">Dado que Elena no es creadora de contenido en sus cuentas personales, Instagram ofrece las herramientas perfectas (cajas de preguntas en Stories, hilos de comentarios en Reels o publicaciones estáticas) para que ella pueda expresarse, dejar su testimonio y conversar de forma directa con la marca. La marca aprovecha el uso común de la red como una comunidad horizontal donde la voz de la clienta en los comentarios es el activo de fidelización más valioso.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== 09 PIEZAS PROPUESTAS ===================== -->
+    <section id="piezas" data-screen-label="Piezas propuestas" style="padding: 88px 80px 48px;">
+      <div style="text-align:center; margin-bottom: 40px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:18px;"><span style="height:1px; width:60px; background:var(--mint);"></span><span style="font-family: var(--serif); font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--mint-deep); font-weight: 600;">Capítulo 09</span><span style="height:1px; width:60px; background:var(--mint);"></span></div>
+        <h2 style="font-family: var(--display); font-size: 54px; line-height: 1.08; color: var(--ink); margin: 18px 0 0; font-weight: 400;">Piezas propuestas</h2>
+        <svg width="220" height="20" viewBox="0 0 220 20" fill="none" style="margin-top:18px;"><path d="M4 10 C 50 10 62 3 110 10 C 158 17 170 10 216 10" stroke="#9CC7B2" stroke-width="1.4" stroke-linecap="round"/><circle cx="110" cy="10" r="3" fill="#E7AEB8"/></svg>
+      </div>
+      <div style="max-width: 980px; margin: 0 auto 14px;">
+        <p style="font-family: var(--serif); font-size: 19px; line-height: 1.8; color: var(--ink); margin: 0;">El reel de la rutina facial (etapa de <strong>Descubrimiento</strong>) y el carrusel de top 5 beneficios del jabón de jojoba (etapa de <strong>Consideración</strong>) caen en la categoría <strong>Educar</strong> de la matriz, porque van directo al lado analítico y cauteloso de Elena; al exigir transparencia y lo limpio de los ingredientes, estos contenidos de índole racional le dan los datos puros y el paso a paso que necesita para revalidar el producto en su día a día.</p>
+        <p style="font-family: var(--serif); font-size: 19px; line-height: 1.8; color: var(--ink); margin: 16px 0 0;">En la categoría de <strong>Inspirar</strong> se ubican el reel creado en conjunto a la especialista y el del Día Mundial del Océano, porque conectan con su constante búsqueda de bienestar y testimonios; el aval científico de autoridad desarma su desconfianza post-compra, mientras que la movida ecológica toca sus valores conscientes y le da el espacio ideal en la sección de comentarios para generar conversación con la marca sin tener que exponer su cuenta personal.</p>
+        <p style="font-family: var(--serif); font-size: 19px; line-height: 1.8; color: var(--ink); margin: 16px 0 0;">Por último, en <strong>Entretener</strong> entran las historias coyunturales sobre el Mundial, que aprovechan sus momentos de desconexión diaria para conectar a través del humor y la complicidad nacional, logrando que interactúe con la marca de forma lúdica y afiance su fidelización de manera orgánica.</p>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap: 14px; max-width: 980px; margin: 30px auto 6px;">
+        <span style="font-family:var(--serif); font-size:16px; letter-spacing:0.12em; text-transform:uppercase; color:var(--mint-deep); background:var(--mint-soft); border:1px solid var(--mint); border-radius:999px; padding:9px 24px;">Educar</span>
+        <span style="font-family:var(--serif); font-size:16px; letter-spacing:0.12em; text-transform:uppercase; color:var(--pink-deep); background:var(--pink-soft); border:1px solid var(--pink); border-radius:999px; padding:9px 24px;">Inspirar</span>
+        <span style="font-family:var(--serif); font-size:16px; letter-spacing:0.12em; text-transform:uppercase; color:var(--mint-deep); background:var(--mint-soft); border:1px solid var(--mint); border-radius:999px; padding:9px 24px;">Entretener</span>
+      </div>
+    </section>
+
+    <!-- ===== PIEZA: Reel Rutina ===== -->
+    <section style="padding: 24px 80px 40px;">
+      <div style="max-width: 1320px; margin: 0 auto; border:1px solid var(--mint); border-radius: 10px 38px 10px 38px; overflow:hidden;">
+        <div style="background: var(--mint-soft); padding: 26px 38px; display:flex; align-items:center; gap:18px; border-bottom:1px solid var(--mint);">
+          <span style="font-family:var(--serif); font-size:14px; letter-spacing:0.2em; text-transform:uppercase; color:#fff; background:var(--mint-deep); border-radius:999px; padding:6px 18px; white-space:nowrap;">Reel</span>
+          <h3 style="font-family:var(--display); font-size:30px; color:var(--ink); margin:0; font-weight:400;">Rutina natural para pieles con rosácea</h3>
+        </div>
+        <div style="padding: 34px 38px; display:flex; gap:44px; align-items:flex-start;">
+          <div style="flex:1; min-width:0;">
+            <div style="display:flex; flex-wrap:wrap; gap: 20px 40px; margin-bottom:26px;">
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink); margin:0; flex:1 1 280px;"><span style="font-family:var(--serif); font-weight:600; color:var(--mint-deep); text-transform:uppercase; letter-spacing:0.08em; font-size:14px;">Formato</span><br>Video corto (9:16). Estética minimalista, cinematográfica y limpia. Pieles reales, luz natural y foco en las texturas de los productos.</p>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink); margin:0; flex:1 1 280px;"><span style="font-family:var(--serif); font-weight:600; color:var(--mint-deep); text-transform:uppercase; letter-spacing:0.08em; font-size:14px;">Audio</span><br>Música Lo-Fi instrumental o de ambiente muy relajante, mezclada con los sonidos reales del agua y el producto (ASMR). Sin voz en off.</p>
+            </div>
+            <table style="width:100%; border-collapse:collapse; font-family:var(--serif); margin-bottom: 28px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:#fff; background:var(--mint-deep); padding:12px 14px; font-weight:600; border-radius:6px 0 0 0; width:120px;">Momento</th>
+                  <th style="text-align:left; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:#fff; background:var(--mint-deep); padding:12px 14px; font-weight:600;">Plano visual</th>
+                  <th style="text-align:left; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:#fff; background:var(--mint-deep); padding:12px 14px; font-weight:600; border-radius:0 6px 0 0; width:230px;">Texto en pantalla</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:var(--mint-soft);"><td style="padding:14px; vertical-align:top; font-size:16px; color:var(--mint-deep); font-weight:600; border-bottom:1px solid #fff;">00:00&ndash;00:03</td><td style="padding:14px; vertical-align:top; font-size:17px; line-height:1.55; color:var(--ink); border-bottom:1px solid #fff;">Planos cercanos de la cara con piel real, textura y rojez natural de la rosácea. El plano es súper cuidado y estético.</td><td style="padding:14px; vertical-align:top; font-size:17px; line-height:1.5; color:var(--ink); font-style:italic; border-bottom:1px solid #fff;">¿Tenés rosácea? Encontrá tu rutina natural</td></tr>
+                <tr><td style="padding:14px; vertical-align:top; font-size:16px; color:var(--mint-deep); font-weight:600; border-bottom:1px solid var(--mint-soft);">00:03&ndash;00:06</td><td style="padding:14px; vertical-align:top; font-size:17px; line-height:1.55; color:var(--ink); border-bottom:1px solid var(--mint-soft);">Toma macro del jabón vegetal generando una espuma blanca, cremosa y muy suave entre las manos.</td><td style="padding:14px; vertical-align:top; font-size:17px; line-height:1.5; color:var(--ink); font-style:italic; border-bottom:1px solid var(--mint-soft);">Paso 1: Limpieza ultra suave</td></tr>
+                <tr style="background:var(--mint-soft);"><td style="padding:14px; vertical-align:top; font-size:16px; color:var(--mint-deep); font-weight:600; border-bottom:1px solid #fff;">00:06&ndash;00:09</td><td style="padding:14px; vertical-align:top; font-size:17px; line-height:1.55; color:var(--ink); border-bottom:1px solid #fff;">Gotas finas de agua tónica brumizándose sobre el rostro. Sensación de alivio inmediato.</td><td style="padding:14px; vertical-align:top; font-size:17px; line-height:1.5; color:var(--ink); font-style:italic; border-bottom:1px solid #fff;">Paso 2: Tonificar y calmar</td></tr>
+                <tr><td style="padding:14px; vertical-align:top; font-size:16px; color:var(--mint-deep); font-weight:600; border-bottom:1px solid var(--mint-soft);">00:09&ndash;00:12</td><td style="padding:14px; vertical-align:top; font-size:17px; line-height:1.55; color:var(--ink); border-bottom:1px solid var(--mint-soft);">Plano detalle a cámara lenta de una gota densa de serum cayendo por el cachete, deslizándose suavemente.</td><td style="padding:14px; vertical-align:top; font-size:17px; line-height:1.5; color:var(--ink); font-style:italic; border-bottom:1px solid var(--mint-soft);">Paso 3: Hidratación profunda</td></tr>
+                <tr style="background:var(--mint-soft);"><td style="padding:14px; vertical-align:top; font-size:16px; color:var(--mint-deep); font-weight:600;">00:12&ndash;00:15</td><td style="padding:14px; vertical-align:top; font-size:17px; line-height:1.55; color:var(--ink);">Rostro completo, una piel que se ve fresca, calmada, luminosa y profundamente hidratada.</td><td style="padding:14px; vertical-align:top; font-size:17px; line-height:1.5; color:var(--ink); font-style:italic;">Tu piel en su estado más puro.</td></tr>
+              </tbody>
+            </table>
+            <div style="background:var(--paper); border-left:3px solid var(--pink); padding: 4px 0 4px 22px;">
+              <div style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:13px; margin-bottom:10px;">Copy</div>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0 0 12px;">¿Sentís que a tu piel todo le cae mal? Darle un respiro con ingredientes 100% puros y de origen vegetal cambia el juego por completo. Guardá este posteo y copiá el paso a paso de la rutina calmante Boti-K Pure:</p>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0 0 7px;"><strong>Paso 1 &mdash; Jabón vegetal de jojoba:</strong> limpia profundamente sin agredir la barrera cutánea, respetando el pH de tu piel.</p>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0 0 7px;"><strong>Paso 2 &mdash; Agua tónica facial:</strong> bruma directamente sobre el rostro para descongestionar, refrescar y aliviar la tirantez al instante.</p>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0 0 12px;"><strong>Paso 3 &mdash; Serum facial bioactivo:</strong> aplicá unas gotas para sellar la hidratación, nutrir las capas profundas y acelerar la regeneración celular.</p>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0; font-style:italic;">Una rutina simple, honesta y libre de químicos agresivos. Encontrá todos los productos ingresando al link de nuestra bio.</p>
+            </div>
+          </div>
+          <div style="flex:0 0 300px;">
+            <div style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:12px; margin-bottom:12px; text-align:center;">Pieza final &middot; video</div>
+            <video src="assets/reel-rutina.mp4" controls="controls" playsinline preload="metadata" style="width:100%; aspect-ratio:9/16; object-fit:cover; border:1px solid var(--mint); border-radius:18px; background:#000; display:block;"></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PIEZA: Carrusel ===== -->
+    <section style="padding: 14px 80px 40px;">
+      <div style="max-width: 1320px; margin: 0 auto; border:1px solid var(--pink); border-radius: 38px 10px 38px 10px; overflow:hidden;">
+        <div style="background: var(--pink-soft); padding: 26px 38px; display:flex; align-items:center; gap:18px; border-bottom:1px solid var(--pink);">
+          <span style="font-family:var(--serif); font-size:14px; letter-spacing:0.2em; text-transform:uppercase; color:#fff; background:var(--pink-deep); border-radius:999px; padding:6px 18px; white-space:nowrap;">Carrusel</span>
+          <h3 style="font-family:var(--display); font-size:29px; color:var(--ink); margin:0; font-weight:400;">Top 5 beneficios del jabón vegetal de jojoba</h3>
+        </div>
+        <div style="padding: 34px 38px; display:flex; gap:44px; align-items:flex-start;">
+          <div style="flex:1; min-width:0;">
+            <p style="font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink); margin:0 0 26px;"><span style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.08em; font-size:14px;">Estética de diseño</span><br>Art Nouveau naturalista. Fondos en tonos tierra suaves o verde oliva pastel. Marcos con líneas orgánicas sinuosas, ilustraciones botánicas delicadas de la planta de jojoba entrelazadas. Tipografías elegantes y curvas fluidas. <em>Seamless flow.</em></p>
+            <div style="font-family:var(--serif); font-weight:600; color:var(--mint-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:13px; margin-bottom:16px;">Estructura de slides</div>
+            <div style="display:flex; flex-direction:column; gap: 11px; margin-bottom: 28px;">
+              <div style="display:flex; gap:16px; align-items:baseline; background:var(--mint-soft); border-radius:4px 16px 4px 16px; padding:15px 20px;"><span style="font-family:var(--display); color:var(--mint-deep); font-size:17px; white-space:nowrap;">Slide 1 &middot; Portada</span><span style="font-family:var(--serif); font-size:17.5px; line-height:1.6; color:var(--ink);">Ilustración central de la jojoba enmarcada en filigranas vegetales. Texto: <em>"5 razones por las que tu piel sensible necesita el jabón vegetal de jojoba".</em></span></div>
+              <div style="display:flex; gap:16px; align-items:baseline; padding:4px 20px;"><span style="font-family:var(--display); color:var(--pink-deep); font-size:17px; white-space:nowrap;">Slide 2</span><span style="font-family:var(--serif); font-size:17.5px; line-height:1.6; color:var(--ink);"><strong>1. Aliado de la rosácea.</strong> Calma las irritaciones y reduce las rojeces gracias a sus propiedades descongestivas naturales.</span></div>
+              <div style="display:flex; gap:16px; align-items:baseline; background:var(--mint-soft); border-radius:4px 16px 4px 16px; padding:15px 20px;"><span style="font-family:var(--display); color:var(--pink-deep); font-size:17px; white-space:nowrap;">Slide 3</span><span style="font-family:var(--serif); font-size:17.5px; line-height:1.6; color:var(--ink);"><strong>2. Sebo-regulador biológico.</strong> Su composición es idéntica a la cera natural de nuestra piel; equilibra la grasitud sin resecar.</span></div>
+              <div style="display:flex; gap:16px; align-items:baseline; padding:4px 20px;"><span style="font-family:var(--display); color:var(--pink-deep); font-size:17px; white-space:nowrap;">Slide 4</span><span style="font-family:var(--serif); font-size:17.5px; line-height:1.6; color:var(--ink);"><strong>3. Limpieza 100% pura.</strong> Saponificado en frío, libre de sulfatos, detergentes sintéticos y derivados del petróleo.</span></div>
+              <div style="display:flex; gap:16px; align-items:baseline; background:var(--mint-soft); border-radius:4px 16px 4px 16px; padding:15px 20px;"><span style="font-family:var(--display); color:var(--pink-deep); font-size:17px; white-space:nowrap;">Slide 5</span><span style="font-family:var(--serif); font-size:17.5px; line-height:1.6; color:var(--ink);"><strong>4. Nutrición antioxidante.</strong> Rico en Vitamina E y minerales esenciales que reparan y protegen la barrera cutánea.</span></div>
+              <div style="display:flex; gap:16px; align-items:baseline; padding:4px 20px;"><span style="font-family:var(--display); color:var(--pink-deep); font-size:17px; white-space:nowrap;">Slide 6</span><span style="font-family:var(--serif); font-size:17.5px; line-height:1.6; color:var(--ink);"><strong>5. Biodegradable y consciente.</strong> Cuida tu salud y la del planeta. Su fórmula no deja residuos contaminantes en el agua.</span></div>
+              <div style="display:flex; gap:16px; align-items:baseline; background:var(--mint-soft); border-radius:4px 16px 4px 16px; padding:15px 20px;"><span style="font-family:var(--display); color:var(--mint-deep); font-size:17px; white-space:nowrap;">Slide 7 &middot; CTA</span><span style="font-family:var(--serif); font-size:17.5px; line-height:1.6; color:var(--ink);">Imagen estética del jabón real sobre una jabonera de cerámica. Texto: <em>"Sumalo a tu rutina. Hacé click en el link de nuestra bio y dale ese mimo a tu piel".</em></span></div>
+            </div>
+            <div style="background:var(--paper); border-left:3px solid var(--pink); padding: 4px 0 4px 22px;">
+              <div style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:13px; margin-bottom:10px;">Copy</div>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0 0 12px;">No es solo un jabón, es un tratamiento de pureza para tu piel. Nuestro jabón vegetal de jojoba está pensado para limpiar respetando la naturaleza de las pieles más delicadas y reactivas. Sin trucos, sin químicos ocultos, solo botánica pura.</p>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0; font-style:italic;">Hacé click en el enlace de nuestra bio y descubrí el poder de la cosmética limpia.</p>
+            </div>
+          </div>
+          <div style="flex:0 0 380px;">
+            <div style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:12px; margin-bottom:12px; text-align:center;">Pieza final &middot; carrusel interactivo</div>
+            <div style="position:relative; border:1px solid var(--pink); border-radius:16px; overflow:hidden; background:#fff;">
+              <div style="display:flex; transition:transform .45s cubic-bezier(.4,0,.2,1); transform:{{ carT }};">
+                <img src="assets/carrusel-1.jpg" alt="Carrusel slide 1" style="flex:0 0 100%; width:100%; display:block;">
+                <img src="assets/carrusel-2.jpg" alt="Carrusel slide 2" style="flex:0 0 100%; width:100%; display:block;">
+                <img src="assets/carrusel-3.jpg" alt="Carrusel slide 3" style="flex:0 0 100%; width:100%; display:block;">
+                <img src="assets/carrusel-4.jpg" alt="Carrusel slide 4" style="flex:0 0 100%; width:100%; display:block;">
+                <img src="assets/carrusel-5.jpg" alt="Carrusel slide 5" style="flex:0 0 100%; width:100%; display:block;">
+                <img src="assets/carrusel-6.jpg" alt="Carrusel slide 6" style="flex:0 0 100%; width:100%; display:block;">
+                <img src="assets/carrusel-7.jpg" alt="Carrusel slide 7" style="flex:0 0 100%; width:100%; display:block;">
+              </div>
+              <button type="button" onClick="{{ carPrev }}" aria-label="Anterior" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); width:42px; height:42px; border:none; border-radius:50%; background:rgba(255,255,255,0.85); color:var(--pink-deep); font-size:22px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.18);">&#8249;</button>
+              <button type="button" onClick="{{ carNext }}" aria-label="Siguiente" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); width:42px; height:42px; border:none; border-radius:50%; background:rgba(255,255,255,0.85); color:var(--pink-deep); font-size:22px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.18);">&#8250;</button>
+              <div style="position:absolute; top:12px; right:14px; background:rgba(58,68,60,0.62); color:#fff; font-family:var(--serif); font-size:13px; border-radius:999px; padding:3px 12px;">{{ carLabel }}</div>
+            </div>
+            <div style="display:flex; gap:8px; justify-content:center; align-items:center; margin-top:16px;">
+              <sc-for list="{{ carDots }}" as="dot" hint-placeholder-count="7"><span onClick="{{ dot.go }}" style="width:{{ dot.size }}; height:{{ dot.size }}; border-radius:50%; background:{{ dot.color }}; cursor:pointer; display:inline-block; transition:all .2s;"></span></sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PIEZA: Reel Especialista ===== -->
+    <section style="padding: 14px 80px 40px;">
+      <div style="max-width: 1320px; margin: 0 auto; border:1px solid var(--mint); border-radius: 10px 38px 10px 38px; overflow:hidden;">
+        <div style="background: var(--mint-soft); padding: 26px 38px; display:flex; align-items:center; gap:18px; border-bottom:1px solid var(--mint);">
+          <span style="font-family:var(--serif); font-size:14px; letter-spacing:0.2em; text-transform:uppercase; color:#fff; background:var(--mint-deep); border-radius:999px; padding:6px 18px; white-space:nowrap;">Reel</span>
+          <h3 style="font-family:var(--display); font-size:29px; color:var(--ink); margin:0; font-weight:400;">Recomendación especialista en clean beauty</h3>
+        </div>
+        <div style="padding: 34px 38px; display:flex; gap:44px; align-items:flex-start;">
+          <div style="flex:1; min-width:0;">
+            <div style="display:flex; flex-wrap:wrap; gap: 20px 40px; margin-bottom:26px;">
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink); margin:0; flex:1 1 280px;"><span style="font-family:var(--serif); font-weight:600; color:var(--mint-deep); text-transform:uppercase; letter-spacing:0.08em; font-size:14px;">Formato</span><br>Video en formato vertical (9:16). Iluminación cálida y natural. La cosmetóloga especialista habla directo a cámara. El video intercala tomas de ella hablando con planos detalle de los jabones en uso.</p>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink); margin:0; flex:1 1 280px;"><span style="font-family:var(--serif); font-weight:600; color:var(--mint-deep); text-transform:uppercase; letter-spacing:0.08em; font-size:14px;">Audio</span><br>Voz de la especialista clara y cercana, con una cortina musical muy sutil de fondo.</p>
+            </div>
+            <div style="background:var(--mint-soft); border-radius: 6px 20px 6px 20px; padding: 24px 28px; margin-bottom: 26px;">
+              <div style="font-family:var(--serif); font-weight:600; color:var(--mint-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:13px; margin-bottom:10px;">Script</div>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.74; color:var(--ink); margin:0; font-style:italic;">"Si tenés la piel sensible, reactiva o con afecciones como la rosácea, seguro te pasa que te da miedo probar cualquier producto nuevo. Y tenés razón. La mayoría de los limpiadores comerciales tienen sulfatos y fragancias sintéticas que barren con tu barrera protectora. Por eso, mi recomendación siempre va hacia la cosmética limpia. Te lo digo como profesional, y como persona con piel terca y sensible. Estos jabones vegetales puros de Boti-K Pure son un antes y un después. Al estar hechos únicamente con aceites vegetales saponificados, limpian la piel de forma real, manteniéndola hidratada y protegida, sin aportar ningún químico agresivo. Si buscás cuidar tu piel desde el respeto y la salud, este es el camino."</p>
+            </div>
+            <div style="background:var(--paper); border-left:3px solid var(--pink); padding: 4px 0 4px 22px;">
+              <div style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:13px; margin-bottom:10px;">Copy</div>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0 0 12px;">Cuando elegís cosmética limpia, tu piel lo nota desde el primer día. Escuchá la recomendación de los profesionales que saben, como Nati: los jabones vegetales puros no solo limpian, tratan y protegen las pieles con afecciones y alta sensibilidad.</p>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0; font-style:italic;">Conseguí los tuyos ingresando directamente a nuestra tienda online desde el link de la bio.</p>
+            </div>
+          </div>
+          <div style="flex:0 0 300px;">
+            <div style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:12px; margin-bottom:12px; text-align:center;">Pieza final &middot; video</div>
+            <video src="assets/reel-especialista.mp4" controls="controls" playsinline preload="metadata" style="width:100%; aspect-ratio:9/16; object-fit:cover; border:1px solid var(--mint); border-radius:18px; background:#000; display:block;"></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PIEZA: Reel Día Océano ===== -->
+    <section style="padding: 14px 80px 40px;">
+      <div style="max-width: 1320px; margin: 0 auto; border:1px solid var(--mint); border-radius: 38px 10px 38px 10px; overflow:hidden;">
+        <div style="background: var(--mint-soft); padding: 26px 38px; display:flex; align-items:center; gap:18px; border-bottom:1px solid var(--mint);">
+          <span style="font-family:var(--serif); font-size:14px; letter-spacing:0.2em; text-transform:uppercase; color:#fff; background:var(--mint-deep); border-radius:999px; padding:6px 18px; white-space:nowrap;">Reel</span>
+          <h3 style="font-family:var(--display); font-size:30px; color:var(--ink); margin:0; font-weight:400;">Día Mundial del Océano</h3>
+        </div>
+        <div style="padding: 34px 38px; display:flex; gap:44px; align-items:flex-start;">
+          <div style="flex:1; min-width:0;">
+            <p style="font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink); margin:0 0 26px;"><span style="font-family:var(--serif); font-weight:600; color:var(--mint-deep); text-transform:uppercase; letter-spacing:0.08em; font-size:14px;">Formato</span><br>Contenido tipo UGC. Planos caseros pero estéticos, cortes rápidos y dinámicos. Alguien del equipo de la marca habla a la cámara de forma fresca, mostrando imágenes de los productos en pantalla.</p>
+            <div style="background:var(--mint-soft); border-radius: 6px 20px 6px 20px; padding: 24px 28px; margin-bottom: 26px;">
+              <div style="font-family:var(--serif); font-weight:600; color:var(--mint-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:13px; margin-bottom:10px;">Script</div>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.74; color:var(--ink); margin:0; font-style:italic;">"(Corte rápido) Hoy es el Día Mundial del Océano y te queremos contar algo que quizás no sabías… (Corte) Cada vez que nos bañamos o nos lavamos la cara, todo lo que usamos va directo al agua. (Corte) Los cosméticos masivos suelen estar llenos de microplásticos, sulfatos y derivados del petróleo que contaminan los ecosistemas marinos. (Corte) Por eso en Boti-K Pure nuestras fórmulas son 100% biodegradables y libres de crueldad animal. Elegir cosmética sólida y natural no solo protege tu piel, también evita que toneladas de plásticos y químicos terminen en el océano. Cuidar el planeta empieza por ti. Contanos en los comentarios qué hacés vos para cuidar los océanos."</p>
+            </div>
+            <div style="background:var(--paper); border-left:3px solid var(--pink); padding: 4px 0 4px 22px;">
+              <div style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:13px; margin-bottom:10px;">Copy</div>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0 0 12px;">Cada pequeña decisión en nuestra rutina diaria viaja directo al mar. En Boti-K Pure asumimos el compromiso de crear cosmética honesta, con fórmulas 100% biodegradables que respetan la vida marina. Conectemos el cuidado de nuestro cuerpo con el cuidado de la Tierra.</p>
+              <p style="font-family:var(--serif); font-size:18px; line-height:1.7; color:var(--ink); margin:0; font-style:italic;">Y vos, ¿qué pequeña acción sumás hoy en tu casa para cuidar el océano? Dejanos tu comentario acá abajo.</p>
+            </div>
+          </div>
+          <div style="flex:0 0 300px;">
+            <div style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:12px; margin-bottom:12px; text-align:center;">Pieza final &middot; video</div>
+            <video src="assets/reel-oceano.mp4" controls="controls" playsinline preload="metadata" style="width:100%; aspect-ratio:9/16; object-fit:cover; border:1px solid var(--mint); border-radius:18px; background:#000; display:block;"></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PIEZA: Stories Mundial ===== -->
+    <section style="padding: 14px 80px 64px;">
+      <div style="max-width: 1320px; margin: 0 auto; border:1px solid var(--pink); border-radius: 10px 38px 10px 38px; overflow:hidden;">
+        <div style="background: var(--pink-soft); padding: 26px 38px; display:flex; align-items:center; gap:18px; border-bottom:1px solid var(--pink);">
+          <span style="font-family:var(--serif); font-size:14px; letter-spacing:0.2em; text-transform:uppercase; color:#fff; background:var(--pink-deep); border-radius:999px; padding:6px 18px; white-space:nowrap;">Stories</span>
+          <h3 style="font-family:var(--display); font-size:29px; color:var(--ink); margin:0; font-weight:400;">Especial Mundial &mdash; Serie de 5</h3>
+        </div>
+        <div style="padding: 34px 38px;">
+          <p style="font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink); margin:0 0 28px; max-width: 980px;"><span style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.08em; font-size:14px;">Estética de diseño</span><br>Fusión de Art Nouveau naturalista y Fileteado porteño. Los bordes curvos de las hojas e ilustraciones botánicas se mezclan con las espirales simétricas, flores típicas y cintas patrias. Colores: celeste, blanco y azul.</p>
+
+          <!-- Final story series slot -->
+          <div style="font-family:var(--serif); font-weight:600; color:var(--pink-deep); text-transform:uppercase; letter-spacing:0.12em; font-size:13px; margin-bottom:16px; text-align:center;">Pieza final &middot; serie de Stories interactiva</div>
+          <div style="display:flex; flex-direction:column; align-items:center; margin-bottom:40px;">
+            <div style="position:relative; width:300px; border:1px solid var(--pink); border-radius:18px; overflow:hidden; background:#000;">
+              <div style="display:flex; transition:transform .45s cubic-bezier(.4,0,.2,1); transform:{{ stoT }};">
+                <div style="flex:0 0 100%; width:100%;"><video src="assets/story-1.mp4" controls="controls" playsinline preload="metadata" style="width:100%; aspect-ratio:9/16; object-fit:cover; display:block; background:#000;"></video></div>
+                <img src="assets/story-2.jpg" alt="Story 2 — jabón de jojoba" style="flex:0 0 100%; width:100%; aspect-ratio:9/16; object-fit:cover; display:block;">
+                <img src="assets/story-3.jpg" alt="Story 3 — eco leche balsámica" style="flex:0 0 100%; width:100%; aspect-ratio:9/16; object-fit:cover; display:block;">
+                <img src="assets/story-4.jpg" alt="Story 4 — oleum vegetal" style="flex:0 0 100%; width:100%; aspect-ratio:9/16; object-fit:cover; display:block;">
+                <img src="assets/story-5.jpg" alt="Story 5 — goleador" style="flex:0 0 100%; width:100%; aspect-ratio:9/16; object-fit:cover; display:block;">
+              </div>
+              <button type="button" onClick="{{ stoPrev }}" aria-label="Anterior" style="position:absolute; left:8px; top:50%; transform:translateY(-50%); width:36px; height:36px; border:none; border-radius:50%; background:rgba(255,255,255,0.82); color:var(--pink-deep); font-size:19px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.25);">&#8249;</button>
+              <button type="button" onClick="{{ stoNext }}" aria-label="Siguiente" style="position:absolute; right:8px; top:50%; transform:translateY(-50%); width:36px; height:36px; border:none; border-radius:50%; background:rgba(255,255,255,0.82); color:var(--pink-deep); font-size:19px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.25);">&#8250;</button>
+              <div style="position:absolute; top:10px; right:12px; background:rgba(58,68,60,0.6); color:#fff; font-family:var(--serif); font-size:12px; border-radius:999px; padding:3px 11px;">{{ stoLabel }}</div>
+            </div>
+            <div style="display:flex; gap:8px; justify-content:center; align-items:center; margin-top:16px;">
+              <sc-for list="{{ stoDots }}" as="dot" hint-placeholder-count="5"><span onClick="{{ dot.go }}" style="width:{{ dot.size }}; height:{{ dot.size }}; border-radius:50%; background:{{ dot.color }}; cursor:pointer; display:inline-block; transition:all .2s;"></span></sc-for>
+            </div>
+          </div>
+
+          <div style="column-count: 2; column-gap: 40px;">
+            <div style="break-inside:avoid; -webkit-column-break-inside:avoid; display:inline-block; width:100%; margin-bottom: 18px; border:1px solid var(--line); border-radius: 6px 18px 6px 18px; padding: 22px 26px; background:var(--paper); box-sizing:border-box;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;"><span style="font-family:var(--display); font-size:18px; color:var(--pink-deep);">Story 1</span><span style="font-family:var(--serif); font-size:14px; letter-spacing:0.1em; text-transform:uppercase; color:var(--mint-deep);">Portada</span></div>
+              <p style="font-family:var(--serif); font-size:16px; line-height:1.6; color:var(--ink2); margin:0 0 9px;"><strong style="color:var(--mint-deep);">Visual:</strong> fondo blanco. Un marco fileteado imponente con los colores de la selección. En el centro, el texto animado.</p>
+              <p style="font-family:var(--serif); font-size:17px; line-height:1.68; color:var(--ink); margin:0;"><strong style="color:var(--pink-deep);">Texto:</strong> <em>"Muchos dicen que Scaloni es el único estratega... pero la verdadera lista de convocados ganadores se armó acá. Somos los verdaderos profesionales en armar listados imbatibles para cuidar tu piel. Te presentamos a los titulares indiscutidos del invierno."</em></p>
+            </div>
+            <div style="break-inside:avoid; -webkit-column-break-inside:avoid; display:inline-block; width:100%; margin-bottom: 18px; border:1px solid var(--line); border-radius: 18px 6px 18px 6px; padding: 22px 26px; background:var(--paper); box-sizing:border-box;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;"><span style="font-family:var(--display); font-size:18px; color:var(--pink-deep);">Story 2</span><span style="font-family:var(--serif); font-size:14px; letter-spacing:0.1em; text-transform:uppercase; color:var(--mint-deep);">El defensa central &middot; jabón de jojoba</span></div>
+              <p style="font-family:var(--serif); font-size:16px; line-height:1.6; color:var(--ink2); margin:0 0 9px;"><strong style="color:var(--mint-deep);">Visual:</strong> fondo blanco. Marco fileteado imponente con los colores de la selección. En el centro, el texto y la foto del producto.</p>
+              <p style="font-family:var(--serif); font-size:17px; line-height:1.68; color:var(--ink); margin:0;"><strong style="color:var(--pink-deep);">Texto:</strong> <strong>JABÓN VEGETAL DE JOJOBA: El caudillo de la defensa.</strong> Características de juego: se encarga de equilibrar la cancha (sebo-regulador), frena en seco las rojeces de la rosácea y mantiene el arco en cero (limpieza pura sin agredir). El titular indiscutido de la rutina.</p>
+            </div>
+            <div style="break-inside:avoid; -webkit-column-break-inside:avoid; display:inline-block; width:100%; margin-bottom: 18px; border:1px solid var(--line); border-radius: 6px 18px 6px 18px; padding: 22px 26px; background:var(--paper); box-sizing:border-box;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;"><span style="font-family:var(--display); font-size:18px; color:var(--pink-deep);">Story 3</span><span style="font-family:var(--serif); font-size:14px; letter-spacing:0.1em; text-transform:uppercase; color:var(--mint-deep);">El mediocampista de oro &middot; eco leche balsámica</span></div>
+              <p style="font-family:var(--serif); font-size:16px; line-height:1.6; color:var(--ink2); margin:0 0 9px;"><strong style="color:var(--mint-deep);">Visual:</strong> fondo blanco. Marco fileteado imponente con los colores de la selección. En el centro, el texto y la foto del producto.</p>
+              <p style="font-family:var(--serif); font-size:17px; line-height:1.68; color:var(--ink); margin:0;"><strong style="color:var(--pink-deep);">Texto:</strong> <strong>ECO LECHE BALSÁMICA: El cerebro del equipo.</strong> Características de juego: distribuye la hidratación por toda la cancha, calma los momentos de máxima presión (descongestiona) y refresca el juego. Es el nexo perfecto entre la limpieza y la hidratación.</p>
+            </div>
+            <div style="break-inside:avoid; -webkit-column-break-inside:avoid; display:inline-block; width:100%; margin-bottom: 18px; border:1px solid var(--line); border-radius: 18px 6px 18px 6px; padding: 22px 26px; background:var(--paper); box-sizing:border-box;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;"><span style="font-family:var(--display); font-size:18px; color:var(--pink-deep);">Story 4</span><span style="font-family:var(--serif); font-size:14px; letter-spacing:0.1em; text-transform:uppercase; color:var(--mint-deep);">El puntero infaltable &middot; oleum vegetal</span></div>
+              <p style="font-family:var(--serif); font-size:16px; line-height:1.6; color:var(--ink2); margin:0 0 9px;"><strong style="color:var(--mint-deep);">Visual:</strong> fondo blanco. Marco fileteado imponente con los colores de la selección. En el centro, el texto y la foto del producto.</p>
+              <p style="font-family:var(--serif); font-size:17px; line-height:1.68; color:var(--ink); margin:0;"><strong style="color:var(--pink-deep);">Texto:</strong> <strong>OLEUM VEGETAL JOJOBA: El delantero que define el partido.</strong> Características de juego: concentrado, rápido, va directo al ángulo. Repara la barrera de la piel, nutre en profundidad y te asegura una textura impecable. El toque final para ganar la copa del bienestar.</p>
+            </div>
+            <div style="break-inside:avoid; -webkit-column-break-inside:avoid; display:inline-block; width:100%; margin-bottom: 18px; border:1px solid var(--mint); border-radius: 6px 18px 6px 18px; padding: 22px 26px; background:var(--mint-soft); box-sizing:border-box;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;"><span style="font-family:var(--display); font-size:18px; color:var(--pink-deep);">Story 5</span><span style="font-family:var(--serif); font-size:14px; letter-spacing:0.1em; text-transform:uppercase; color:var(--mint-deep);">El goleador</span></div>
+              <p style="font-family:var(--serif); font-size:16px; line-height:1.6; color:var(--ink2); margin:0 0 9px;"><strong style="color:var(--mint-deep);">Visual:</strong> fondo blanco. Marco fileteado imponente con los colores de la selección. En el centro, el texto estático.</p>
+              <p style="font-family:var(--serif); font-size:17px; line-height:1.68; color:var(--ink); margin:0 0 12px;"><strong style="color:var(--pink-deep);">Texto:</strong> <em>"Y vos, ¿qué producto fichás como el goleador?"</em></p>
+              <div style="display:inline-flex; align-items:center; gap:9px; font-family:var(--serif); font-size:15px; color:var(--mint-deep); background:var(--paper); border:1px solid var(--mint); border-radius:999px; padding:7px 16px;"><span style="font-size:15px;">&#10048;</span>Elemento interactivo: cajita de preguntas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer style="text-align:center; padding: 52px 80px 64px; background: linear-gradient(0deg, var(--mint-soft) 0%, var(--paper) 100%); border-top:1px solid var(--line);">
+      <div style="font-family: var(--display); font-size: 30px; color: var(--pink-deep);">&#10086;</div>
+      <img src="assets/logo.png" alt="Boti-K Puro Natural" style="display:block; width:132px; height:auto; margin:10px auto 0;">
+      <p style="font-family: var(--serif); font-size: 17px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink2); margin: 16px 0 0;">TP2 Marketing Digital &middot; DGN5BV</p>
+      <p style="font-family: var(--serif); font-size: 17px; color: var(--ink2); margin: 8px 0 0;">Nahir Alí &middot; Juliana Pereyra &middot; Irina Peyrot</p>
+    </footer>
+
+  </article>
+</div>
+
+<template id="__bundler_thumbnail" data-bg-color="#FBF7EE">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FBF7EE"></rect>
+    <rect x="80" y="80" width="1040" height="640" rx="28" fill="none" stroke="#9CC7B2" stroke-width="4"></rect>
+    <text x="600" y="380" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="200" fill="#5C8B73">&#10086;</text>
+    <text x="600" y="540" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="92" fill="#3A443C">Boti-K Pure</text>
+    <text x="600" y="610" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" letter-spacing="8" fill="#BE7C89">CAMPA&#209;A DIGITAL</text>
+  </svg>
+</template></x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { car: 0, story: 0 };
+  renderVals() {
+    const NC = 7, NS = 5;
+    const car = this.state.car, story = this.state.story;
+    const mkDots = (n, cur, key) => Array.from({ length: n }, (_, i) => ({
+      go: () => this.setState({ [key]: i }),
+      color: i === cur ? 'var(--pink-deep)' : 'rgba(190,124,137,0.4)',
+      size: i === cur ? '12px' : '9px',
+    }));
+    return {
+      carT: 'translateX(-' + (car * 100) + '%)',
+      carPrev: () => this.setState(s => ({ car: (s.car - 1 + NC) % NC })),
+      carNext: () => this.setState(s => ({ car: (s.car + 1) % NC })),
+      carLabel: (car + 1) + ' / ' + NC,
+      carDots: mkDots(NC, car, 'car'),
+      stoT: 'translateX(-' + (story * 100) + '%)',
+      stoPrev: () => this.setState(s => ({ story: (s.story - 1 + NS) % NS })),
+      stoNext: () => this.setState(s => ({ story: (s.story + 1) % NS })),
+      stoLabel: (story + 1) + ' / ' + NS,
+      stoDots: mkDots(NS, story, 'story'),
+    };
+  }
+}
+</script>
+</body>
+</html>
